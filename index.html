@@ -1276,6 +1276,43 @@
         }
 
         /* ============================================
+           Language Selector
+           ============================================ */
+        .lang-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--glass-border);
+            background: rgba(5, 38, 31, 0.8);
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--sovereign-primary);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(26, 188, 156, 0.3);
+        }
+
+        .lang-btn.active {
+            border-color: var(--sovereign-primary);
+            background: rgba(26, 188, 156, 0.2);
+            box-shadow: 0 0 15px rgba(26, 188, 156, 0.4);
+        }
+
+        /* ============================================
            Responsive
            ============================================ */
         @media (max-width: 768px) {
@@ -1438,6 +1475,10 @@
 
                 <!-- Quick Links -->
                 <div class="quick-links">
+                    <a class="quick-link" href="docs/THE_BROWSER_EXPLAINED.html">
+                        <span class="quick-link-icon">📖</span>
+                        <span class="quick-link-name" data-i18n="explain">اشرح لي</span>
+                    </a>
                     <a class="quick-link" href="https://github.com/KHAWRIZM" target="_blank">
                         <span class="quick-link-icon">🐙</span>
                         <span class="quick-link-name">GitHub</span>
@@ -1456,12 +1497,22 @@
                     </a>
                     <a class="quick-link" href="https://youtube.com" target="_blank">
                         <span class="quick-link-icon">📺</span>
-                        <span class="quick-link-name">يوتيوب</span>
+                        <span class="quick-link-name" data-i18n="youtube">يوتيوب</span>
                     </a>
                     <a class="quick-link" href="https://twitter.com" target="_blank">
                         <span class="quick-link-icon">𝕏</span>
-                        <span class="quick-link-name">تويتر</span>
+                        <span class="quick-link-name" data-i18n="twitter">تويتر</span>
                     </a>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-btn active" onclick="setLang('ar')" title="العربية">🇸🇦</button>
+                    <button class="lang-btn" onclick="setLang('en')" title="English">🇺🇸</button>
+                    <button class="lang-btn" onclick="setLang('fr')" title="Français">🇫🇷</button>
+                    <button class="lang-btn" onclick="setLang('es')" title="Español">🇪🇸</button>
+                    <button class="lang-btn" onclick="setLang('zh')" title="中文">🇨🇳</button>
+                    <button class="lang-btn" onclick="setLang('de')" title="Deutsch">🇩🇪</button>
                 </div>
             </div>
         </div>
@@ -1771,6 +1822,180 @@
         console.log('%c🇸🇦 Made in Saudi Arabia | Vision 2030', 'color: #e74c3c;');
         console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #1ABC9C;');
         console.log('%c"من الرماد ينهض العنقاء"', 'color: #1ABC9C; font-style: italic;');
+
+        // ============================================
+        // Multi-Language System (i18n)
+        // ============================================
+        const translations = {
+            ar: {
+                tagline: 'الكيان الرقمي السيادي | Neural Sovereignty',
+                local: '🔒 100% محلي',
+                neutral: '⚖️ محايد عالمياً',
+                vision: '🇸🇦 Vision 2030',
+                threeLobe: '🧠 Three-Lobe AI',
+                searchPlaceholder: 'ابحث في الويب أو اسأل الكيان الذكي...',
+                explain: 'اشرح لي',
+                youtube: 'يوتيوب',
+                twitter: 'تويتر',
+                connected: 'متصل',
+                aiTitle: 'الكيان الذكي',
+                aiWelcome: 'مرحباً! أنا <strong>Comet-X</strong> - الكيان الرقمي السيادي.',
+                aiHelp: 'كيف يمكنني مساعدتك اليوم؟',
+                inputPlaceholder: 'اكتب رسالتك...',
+                executive: 'تنفيذي',
+                sensory: 'حسي',
+                cognitive: 'معرفي',
+                safe: 'آمن'
+            },
+            en: {
+                tagline: 'Neural Sovereignty | Digital Entity',
+                local: '🔒 100% Local',
+                neutral: '⚖️ Globally Neutral',
+                vision: '🇸🇦 Vision 2030',
+                threeLobe: '🧠 Three-Lobe AI',
+                searchPlaceholder: 'Search the web or ask the intelligent entity...',
+                explain: 'Explain',
+                youtube: 'YouTube',
+                twitter: 'Twitter',
+                connected: 'Connected',
+                aiTitle: 'Intelligent Entity',
+                aiWelcome: 'Hello! I am <strong>Comet-X</strong> - The Sovereign Digital Entity.',
+                aiHelp: 'How can I help you today?',
+                inputPlaceholder: 'Type your message...',
+                executive: 'Executive',
+                sensory: 'Sensory',
+                cognitive: 'Cognitive',
+                safe: 'Secure'
+            },
+            fr: {
+                tagline: 'Souveraineté Neurale | Entité Numérique',
+                local: '🔒 100% Local',
+                neutral: '⚖️ Neutre Mondialement',
+                vision: '🇸🇦 Vision 2030',
+                threeLobe: '🧠 IA Tri-Lobaire',
+                searchPlaceholder: 'Rechercher ou demander à l\'entité intelligente...',
+                explain: 'Expliquer',
+                youtube: 'YouTube',
+                twitter: 'Twitter',
+                connected: 'Connecté',
+                aiTitle: 'Entité Intelligente',
+                aiWelcome: 'Bonjour! Je suis <strong>Comet-X</strong> - L\'Entité Numérique Souveraine.',
+                aiHelp: 'Comment puis-je vous aider aujourd\'hui?',
+                inputPlaceholder: 'Écrivez votre message...',
+                executive: 'Exécutif',
+                sensory: 'Sensoriel',
+                cognitive: 'Cognitif',
+                safe: 'Sécurisé'
+            },
+            es: {
+                tagline: 'Soberanía Neural | Entidad Digital',
+                local: '🔒 100% Local',
+                neutral: '⚖️ Neutral Globalmente',
+                vision: '🇸🇦 Vision 2030',
+                threeLobe: '🧠 IA Tri-Lobular',
+                searchPlaceholder: 'Buscar en la web o preguntar a la entidad inteligente...',
+                explain: 'Explicar',
+                youtube: 'YouTube',
+                twitter: 'Twitter',
+                connected: 'Conectado',
+                aiTitle: 'Entidad Inteligente',
+                aiWelcome: '¡Hola! Soy <strong>Comet-X</strong> - La Entidad Digital Soberana.',
+                aiHelp: '¿Cómo puedo ayudarte hoy?',
+                inputPlaceholder: 'Escribe tu mensaje...',
+                executive: 'Ejecutivo',
+                sensory: 'Sensorial',
+                cognitive: 'Cognitivo',
+                safe: 'Seguro'
+            },
+            zh: {
+                tagline: '神经主权 | 数字实体',
+                local: '🔒 100% 本地',
+                neutral: '⚖️ 全球中立',
+                vision: '🇸🇦 愿景 2030',
+                threeLobe: '🧠 三叶AI',
+                searchPlaceholder: '搜索网络或询问智能实体...',
+                explain: '解释',
+                youtube: 'YouTube',
+                twitter: 'Twitter',
+                connected: '已连接',
+                aiTitle: '智能实体',
+                aiWelcome: '你好！我是 <strong>Comet-X</strong> - 主权数字实体。',
+                aiHelp: '今天我能帮你什么？',
+                inputPlaceholder: '输入您的消息...',
+                executive: '执行',
+                sensory: '感知',
+                cognitive: '认知',
+                safe: '安全'
+            },
+            de: {
+                tagline: 'Neurale Souveränität | Digitale Entität',
+                local: '🔒 100% Lokal',
+                neutral: '⚖️ Global Neutral',
+                vision: '🇸🇦 Vision 2030',
+                threeLobe: '🧠 Drei-Lappen-KI',
+                searchPlaceholder: 'Im Web suchen oder die intelligente Entität fragen...',
+                explain: 'Erklären',
+                youtube: 'YouTube',
+                twitter: 'Twitter',
+                connected: 'Verbunden',
+                aiTitle: 'Intelligente Entität',
+                aiWelcome: 'Hallo! Ich bin <strong>Comet-X</strong> - Die Souveräne Digitale Entität.',
+                aiHelp: 'Wie kann ich Ihnen heute helfen?',
+                inputPlaceholder: 'Nachricht eingeben...',
+                executive: 'Exekutiv',
+                sensory: 'Sensorisch',
+                cognitive: 'Kognitiv',
+                safe: 'Sicher'
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function setLang(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            const isRTL = lang === 'ar';
+
+            // Update direction
+            document.documentElement.lang = lang;
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            document.body.style.direction = isRTL ? 'rtl' : 'ltr';
+
+            // Update texts
+            document.querySelector('.brand-tagline').textContent = t.tagline;
+            document.querySelector('.search-input').placeholder = t.searchPlaceholder;
+            document.querySelector('#aiInput').placeholder = t.inputPlaceholder;
+
+            // Update badges
+            const badges = document.querySelectorAll('.badge');
+            if (badges.length >= 4) {
+                badges[0].textContent = t.local;
+                badges[1].textContent = t.neutral;
+                badges[2].textContent = t.vision;
+                badges[3].textContent = t.threeLobe;
+            }
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+            // Update i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.textContent = t[key];
+            });
+
+            // Save preference
+            localStorage.setItem('cometx-lang', lang);
+        }
+
+        // Load saved language
+        const savedLang = localStorage.getItem('cometx-lang');
+        if (savedLang && translations[savedLang]) {
+            setLang(savedLang);
+        }
     </script>
 </body>
 
