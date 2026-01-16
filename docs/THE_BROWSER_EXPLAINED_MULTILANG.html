@@ -6,94 +6,92 @@
     <title>CometX Browser Explained</title>
     <style>
         body {
-            background: url('neural_particle_background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #FFFFFF;
+            background-color: #05261F;
+            color: white;
             font-family: Arial, sans-serif;
         }
-        header {
+        .lang-switcher {
+            text-align: right;
+            margin: 20px;
+        }
+        .lang-btn {
             background-color: #1ABC9C;
-            padding: 10px;
-            text-align: center;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
         }
-        .language-selector {
-            margin-bottom: 20px;
-        }
-        .diagram {
-            width: 100%;
-            height: auto;
+        .section {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
         footer {
-            background-color: #05261F;
+            background-color: #1ABC9C;
             text-align: center;
             padding: 10px;
-            position: relative;
-            bottom: 0;
+        }
+        a {
+            color: #F1C40F;
+            text-decoration: none;
+        }
+        .diagram {
+            background-image: url('path_to_your_diagram_image'); /* Add diagram image */
+            height: 300px;
+            background-size: cover;
+        }
+        .comparison-table {
             width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #F1C40F;
+            padding: 10px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>CometX Browser Explained</h1>
-        <div class="language-selector">
-            <label for="language">Select Language:</label>
-            <select id="language" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="ar">العربية</option>
-                <option value="fr">Français</option>
-                <option value="es">Español</option>
-                <option value="zh">中文</option>
-                <option value="de">Deutsch</option>
-            </select>
-        </div>
-    </header>
-    <main>
-        <section id="three-lobe-system">
-            <h2>Three-Lobe System</h2>
-            <img src="three_lobe_diagram.jpg" alt="Three-Lobe System Diagram" class="diagram">
-            <p>This section explains the Three-Lobe System.</p>
-        </section>
-        <section id="memes">
-            <h2>Memes</h2>
-            <p>Here are some relevant memes!</p>
-        </section>
-        <section id="comparison">
-            <h2>Browser Comparison</h2>
-            <table>
-                <tr>
-                    <th>Feature</th>
-                    <th>CometX</th>
-                    <th>Other Browsers</th>
-                </tr>
-                <tr>
-                    <td>Speed</td>
-                    <td>Fast</td>
-                    <td>Varies</td>
-                </tr>
-                <tr>
-                    <td>Privacy</td>
-                    <td>High</td>
-                    <td>Medium</td>
-                </tr>
-            </table>
-        </section>
-        <section id="roadmap">
-            <h2>Roadmap</h2>
-            <p>This section discusses the future plans for CometX Browser.</p>
-        </section>
-        <section id="call-to-action">
-            <h2>Get Involved</h2>
-            <p>Check us out on <a href="https://github.com/KHAWRIZM/cometx-browser">GitHub</a> and follow us on <a href="https://x.com/cometx">X</a>!</p>
-        </section>
-    </main>
+    <div class="lang-switcher">
+        <button class="lang-btn">🇦🇪 Arabic</button>
+        <button class="lang-btn">🇬🇧 English</button>
+        <button class="lang-btn">🇫🇷 French</button>
+        <button class="lang-btn">🇪🇸 Spanish</button>
+        <button class="lang-btn">🇨🇳 Chinese</button>
+        <button class="lang-btn">🇩🇪 German</button>
+    </div>
+    <div class="section">
+        <h2>Three-Lobe System Explained</h2>
+        <div class="diagram"></div>
+        <p>Here we explain our unique three-lobe system...</p>
+    </div>
+    <div class="section">
+        <h2>Memes: CometX vs Competitors</h2>
+        <p>Hilarious memes comparing CometX with other browsers...</p>
+    </div>
+    <div class="section">
+        <h2>Browser Comparison</h2>
+        <table class="comparison-table">
+            <tr><th>Feature</th><th>CometX</th><th>Competitor A</th></tr>
+            <tr><td>Speed</td><td>Fast</td><td>Moderate</td></tr>
+            <tr><td>Privacy</td><td>High</td><td>Medium</td></tr>
+         </table>
+    </div>
+    <div class="section">
+        <h2>Roadmap</h2>
+        <p>Our planned features for the future...</p>
+    </div>
+    <div class="section">
+        <h2>Call to Action</h2>
+        <p>Try CometX today and join the revolution!</p>
+    </div>
     <footer>
-        <p>Phoenix v0.1</p>
+        <p>Connect with us:</p>
+        <p><a href="https://github.com/KHAWRIZM">GitHub KHAWRIZM</a> | 
+        <a href="https://x.com/khawrzm">X @khawrzm</a> | 
+        <a href="mailto:shammar403@gmail.com">Email</a></p>
     </footer>
-    <script>
-        function changeLanguage() {
-            // i18n logic to change text based on selected language
-        }
-    </script>
 </body>
 </html>
