@@ -1500,13 +1500,13 @@
                         <span class="quick-link-icon">☁️</span>
                         <span class="quick-link-name">Azure</span>
                     </a>
-                    <a class="quick-link" href="https://claude.ai" target="_blank">
+                    <a class="quick-link" href="#" onclick="openSovereignAI('cognitive')" target="_blank">
                         <span class="quick-link-icon">🎭</span>
-                        <span class="quick-link-name">Claude</span>
+                        <span class="quick-link-name">المعرفي</span>
                     </a>
-                    <a class="quick-link" href="https://chat.openai.com" target="_blank">
+                    <a class="quick-link" href="#" onclick="openSovereignAI('executive')" target="_blank">
                         <span class="quick-link-icon">🤖</span>
-                        <span class="quick-link-name">ChatGPT</span>
+                        <span class="quick-link-name">التنفيذي</span>
                     </a>
                     <a class="quick-link" href="https://youtube.com" target="_blank">
                         <span class="quick-link-icon">📺</span>
@@ -2010,6 +2010,62 @@
             setLang(savedLang);
         }
     </script>
+    <!-- Sovereign AI Integration -->
+    <script src="src/ai/sovereign-ai.js"></script>
+    <script>
+        const sovereignAI = new SovereignAI();
+        
+        function openSovereignAI(lobe) {
+            sovereignAI.currentModel = MODELS[lobe === 'cognitive' ? 'claude' : 'gpt4'];
+            document.getElementById('ai-panel').classList.add('active');
+            document.querySelector('.ai-chat-title').textContent = sovereignAI.currentModel.icon + ' ' + sovereignAI.currentModel.name;
+        }
+        
+        // Auto-detect language from input
+        document.querySelector('.ai-input')?.addEventListener('input', function(e) {
+            const text = e.target.value;
+            const arabicRegex = /[\u0600-\u06FF]/;
+            if (arabicRegex.test(text)) {
+                sovereignAI.currentLang = 'ar';
+            } else {
+                sovereignAI.currentLang = 'en';
+            }
+        });
+        
+        // Override sendMessage to use real AI
+        const originalSendMessage = window.sendMessage;
+        window.sendMessage = async function() {
+            const input = document.querySelector('.ai-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'ai-message comet typing';
+            typingDiv.innerHTML = '<div class="message-content">جاري التفكير...</div>';
+            document.querySelector('.ai-chat-messages').appendChild(typingDiv);
+            
+            try {
+                const response = await sovereignAI.chat(message);
+                typingDiv.remove();
+                if (response.choices && response.choices[0]) {
+                    addMessage(response.choices[0].message.content, 'comet');
+                } else {
+                    addMessage('الكيان السيادي جاهز. جرب مرة أخرى.', 'comet');
+                }
+            } catch (err) {
+                typingDiv.remove();
+                addMessage('خطأ في الاتصال. تأكد من الإعدادات.', 'comet');
+            }
+        };
+    </script>
 </body>
 
 </html>
+
+
+
