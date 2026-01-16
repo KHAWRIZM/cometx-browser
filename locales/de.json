@@ -1,0 +1,96 @@
+{
+    "name": "Deutsch",
+    "code": "de",
+    "dir": "ltr",
+    "flag": "🇩🇪",
+    "strings": {
+        "app": {
+            "name": "CometX",
+            "tagline": "Souveräne Digitale Entität",
+            "subtitle": "Neurale Souveränität"
+        },
+        "nav": {
+            "back": "Zurück",
+            "forward": "Vorwärts",
+            "refresh": "Aktualisieren",
+            "home": "Startseite",
+            "downloads": "Downloads",
+            "settings": "Einstellungen",
+            "menu": "Menü"
+        },
+        "url": {
+            "secure": "Sicher",
+            "placeholder": "Suchen oder URL eingeben...",
+            "bookmark": "Lesezeichen"
+        },
+        "tabs": {
+            "newTab": "Neuer Tab",
+            "close": "Schließen"
+        },
+        "brand": {
+            "tagline": "Neurale Souveränität | Souveräne Digitale Entität",
+            "searchPlaceholder": "Im Web suchen oder die intelligente Entität fragen..."
+        },
+        "badges": {
+            "local": "🔒 100% Lokal",
+            "neutral": "⚖️ Global Neutral",
+            "vision": "🇸🇦 Vision 2030",
+            "threeLobe": "🧠 Drei-Lappen-KI"
+        },
+        "lobes": {
+            "executive": {
+                "name": "Exekutiver Lappen",
+                "nameAr": "Exekutiv",
+                "status": "Aktiv"
+            },
+            "sensory": {
+                "name": "Sensorischer Lappen",
+                "nameAr": "Sensorisch",
+                "status": "Überwacht"
+            },
+            "cognitive": {
+                "name": "Kognitiver Lappen",
+                "nameAr": "Kognitiv",
+                "status": "Bereit"
+            }
+        },
+        "quickLinks": {
+            "explain": "Erklären",
+            "youtube": "YouTube",
+            "twitter": "Twitter"
+        },
+        "status": {
+            "connected": "Verbunden",
+            "local": "🔒 100% Lokal",
+            "neutral": "⚖️ Neutral",
+            "threeLobe": "🧠 Drei-Lappen: Aktiv",
+            "location": "📍 Saudi-Arabien"
+        },
+        "ai": {
+            "title": "Intelligente Entität",
+            "executive": "Exekutiv",
+            "sensory": "Sensorisch",
+            "cognitive": "Kognitiv",
+            "welcome": "Hallo! Ich bin <strong>Comet-X</strong> - Die Souveräne Digitale Entität.",
+            "features": {
+                "local": "🔒 <strong>100% Lokal</strong> - Ihre Daten verlassen niemals Ihr Gerät",
+                "neutral": "⚖️ <strong>Neutral</strong> - Keine Voreingenommenheit gegenüber Nation oder Religion",
+                "threeLobe": "🧠 <strong>Drei-Lappen</strong> - Fortgeschrittene Gehirnarchitektur"
+            },
+            "help": "Wie kann ich Ihnen heute helfen?",
+            "placeholder": "Nachricht eingeben..."
+        },
+        "vision": {
+            "title": "🎯 Die Vision",
+            "p1": "<strong>Comet-X</strong> ist nicht nur ein Browser - es ist eine <strong>lebende digitale Entität</strong>, die Ihre Privatsphäre respektiert, Ihren Kontext versteht und sich an Ihre Reise erinnert.",
+            "p2": "Eine KI, die <strong>vollständig neutral</strong> ist - keine Voreingenommenheit gegenüber Nation, Religion oder Politik. Vollständig auf Freiheit, Transparenz und digitaler Souveränität aufgebaut.",
+            "p3": "<strong>\"Aus der Asche erhebt sich der Phönix\"</strong> - Nach der Zerstörung von über 60 Azure-Ressourcen durch Perplexity beschlossen wir, eine Zukunft zu bauen, in der <strong>wir von niemandem abhängig sind</strong>.",
+            "values": "Alles ist <span>lokal</span>. Alles ist <span>transparent</span>. Alles ist <span>souverän</span>.",
+            "quote": "\"Aus der Asche erhebt sich der Phönix\""
+        },
+        "messages": {
+            "newTabSoon": "Neuer Tab - Bald verfügbar!",
+            "closeConfirm": "Möchten Sie Comet-X schließen?"
+        }
+    }
+}

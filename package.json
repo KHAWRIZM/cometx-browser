@@ -1,0 +1,107 @@
+{
+  "name": "cometx-browser",
+  "version": "2.0.0",
+  "description": "☄️ CometX Sovereign Browser - Your Data. Your AI. Your Rules.",
+  "main": "src/main/main.js",
+  "author": {
+    "name": "Sulaiman Al-Shammari (KHAWRIZM)",
+    "email": "shammar403@gmail.com",
+    "url": "https://github.com/KHAWRIZM"
+  },
+  "license": "MIT",
+  "homepage": "https://khawrizm.github.io/cometx-browser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KHAWRIZM/cometx-browser"
+  },
+  "keywords": [
+    "browser",
+    "electron",
+    "ai",
+    "privacy",
+    "sovereign",
+    "local-ai",
+    "saudi-arabia",
+    "vision-2030"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.khawrizm.cometx",
+    "productName": "CometX Browser",
+    "copyright": "Copyright © 2026 KHAWRIZM",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "locales/**/*",
+      "assets/**/*",
+      "index.html",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/icon.ico",
+      "artifactName": "CometX-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icons/icon.ico",
+      "uninstallerIcon": "assets/icons/icon.ico",
+      "installerHeaderIcon": "assets/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CometX Browser"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "assets/icons/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icons",
+      "category": "Network"
+    }
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  }
+}

@@ -1,0 +1,96 @@
+{
+    "name": "English",
+    "code": "en",
+    "dir": "ltr",
+    "flag": "🇺🇸",
+    "strings": {
+        "app": {
+            "name": "CometX",
+            "tagline": "Sovereign Digital Entity",
+            "subtitle": "Neural Sovereignty"
+        },
+        "nav": {
+            "back": "Back",
+            "forward": "Forward",
+            "refresh": "Refresh",
+            "home": "Home",
+            "downloads": "Downloads",
+            "settings": "Settings",
+            "menu": "Menu"
+        },
+        "url": {
+            "secure": "Secure",
+            "placeholder": "Search or type URL...",
+            "bookmark": "Bookmark"
+        },
+        "tabs": {
+            "newTab": "New Tab",
+            "close": "Close"
+        },
+        "brand": {
+            "tagline": "Neural Sovereignty | Sovereign Digital Entity",
+            "searchPlaceholder": "Search the web or ask the intelligent entity..."
+        },
+        "badges": {
+            "local": "🔒 100% Local",
+            "neutral": "⚖️ Globally Neutral",
+            "vision": "🇸🇦 Vision 2030",
+            "threeLobe": "🧠 Three-Lobe AI"
+        },
+        "lobes": {
+            "executive": {
+                "name": "Executive Lobe",
+                "nameAr": "Executive",
+                "status": "Active"
+            },
+            "sensory": {
+                "name": "Sensory Lobe",
+                "nameAr": "Sensory",
+                "status": "Watching"
+            },
+            "cognitive": {
+                "name": "Cognitive Lobe",
+                "nameAr": "Cognitive",
+                "status": "Ready"
+            }
+        },
+        "quickLinks": {
+            "explain": "Explain",
+            "youtube": "YouTube",
+            "twitter": "Twitter"
+        },
+        "status": {
+            "connected": "Connected",
+            "local": "🔒 100% Local",
+            "neutral": "⚖️ Neutral",
+            "threeLobe": "🧠 Three-Lobe: Active",
+            "location": "📍 Saudi Arabia"
+        },
+        "ai": {
+            "title": "Intelligent Entity",
+            "executive": "Executive",
+            "sensory": "Sensory",
+            "cognitive": "Cognitive",
+            "welcome": "Hello! I am <strong>Comet-X</strong> - The Sovereign Digital Entity.",
+            "features": {
+                "local": "🔒 <strong>100% Local</strong> - Your data never leaves your device",
+                "neutral": "⚖️ <strong>Neutral</strong> - No bias towards any nation or religion",
+                "threeLobe": "🧠 <strong>Three-Lobe</strong> - Advanced brain architecture"
+            },
+            "help": "How can I help you today?",
+            "placeholder": "Type your message..."
+        },
+        "vision": {
+            "title": "🎯 The Vision",
+            "p1": "<strong>Comet-X</strong> is not just a browser - it's a <strong>living digital entity</strong> that respects your privacy, understands your context, and remembers your journey.",
+            "p2": "An AI that is <strong>completely neutral</strong> - no bias towards any nation, religion, or politics. Built entirely on freedom, transparency, and digital sovereignty.",
+            "p3": "<strong>\"From the ashes rises the phoenix\"</strong> - After the destruction of 60+ Azure resources by Perplexity, we decided to build a future where <strong>we depend on no one</strong>.",
+            "values": "Everything is <span>local</span>. Everything is <span>transparent</span>. Everything is <span>sovereign</span>.",
+            "quote": "\"From the ashes rises the phoenix\""
+        },
+        "messages": {
+            "newTabSoon": "New tab - Coming soon in the full version!",
+            "closeConfirm": "Do you want to close Comet-X?"
+        }
+    }
+}

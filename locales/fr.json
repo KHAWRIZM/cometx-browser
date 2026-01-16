@@ -1,0 +1,96 @@
+{
+    "name": "Français",
+    "code": "fr",
+    "dir": "ltr",
+    "flag": "🇫🇷",
+    "strings": {
+        "app": {
+            "name": "CometX",
+            "tagline": "Entité Numérique Souveraine",
+            "subtitle": "Souveraineté Neurale"
+        },
+        "nav": {
+            "back": "Retour",
+            "forward": "Avancer",
+            "refresh": "Actualiser",
+            "home": "Accueil",
+            "downloads": "Téléchargements",
+            "settings": "Paramètres",
+            "menu": "Menu"
+        },
+        "url": {
+            "secure": "Sécurisé",
+            "placeholder": "Rechercher ou saisir une URL...",
+            "bookmark": "Favoris"
+        },
+        "tabs": {
+            "newTab": "Nouvel onglet",
+            "close": "Fermer"
+        },
+        "brand": {
+            "tagline": "Souveraineté Neurale | Entité Numérique Souveraine",
+            "searchPlaceholder": "Rechercher sur le web ou demander à l'entité intelligente..."
+        },
+        "badges": {
+            "local": "🔒 100% Local",
+            "neutral": "⚖️ Neutre Mondialement",
+            "vision": "🇸🇦 Vision 2030",
+            "threeLobe": "🧠 IA Tri-Lobaire"
+        },
+        "lobes": {
+            "executive": {
+                "name": "Lobe Exécutif",
+                "nameAr": "Exécutif",
+                "status": "Actif"
+            },
+            "sensory": {
+                "name": "Lobe Sensoriel",
+                "nameAr": "Sensoriel",
+                "status": "Surveillance"
+            },
+            "cognitive": {
+                "name": "Lobe Cognitif",
+                "nameAr": "Cognitif",
+                "status": "Prêt"
+            }
+        },
+        "quickLinks": {
+            "explain": "Expliquer",
+            "youtube": "YouTube",
+            "twitter": "Twitter"
+        },
+        "status": {
+            "connected": "Connecté",
+            "local": "🔒 100% Local",
+            "neutral": "⚖️ Neutre",
+            "threeLobe": "🧠 Tri-Lobe: Actif",
+            "location": "📍 Arabie Saoudite"
+        },
+        "ai": {
+            "title": "Entité Intelligente",
+            "executive": "Exécutif",
+            "sensory": "Sensoriel",
+            "cognitive": "Cognitif",
+            "welcome": "Bonjour! Je suis <strong>Comet-X</strong> - L'Entité Numérique Souveraine.",
+            "features": {
+                "local": "🔒 <strong>100% Local</strong> - Vos données ne quittent jamais votre appareil",
+                "neutral": "⚖️ <strong>Neutre</strong> - Aucun parti pris envers une nation ou religion",
+                "threeLobe": "🧠 <strong>Tri-Lobe</strong> - Architecture cérébrale avancée"
+            },
+            "help": "Comment puis-je vous aider aujourd'hui?",
+            "placeholder": "Écrivez votre message..."
+        },
+        "vision": {
+            "title": "🎯 La Vision",
+            "p1": "<strong>Comet-X</strong> n'est pas qu'un navigateur - c'est une <strong>entité numérique vivante</strong> qui respecte votre vie privée, comprend votre contexte et se souvient de votre parcours.",
+            "p2": "Une IA <strong>totalement neutre</strong> - aucun parti pris envers une nation, religion ou politique. Construit entièrement sur la liberté, la transparence et la souveraineté numérique.",
+            "p3": "<strong>\"Des cendres renaît le phénix\"</strong> - Après la destruction de plus de 60 ressources Azure par Perplexity, nous avons décidé de construire un avenir où <strong>nous ne dépendons de personne</strong>.",
+            "values": "Tout est <span>local</span>. Tout est <span>transparent</span>. Tout est <span>souverain</span>.",
+            "quote": "\"Des cendres renaît le phénix\""
+        },
+        "messages": {
+            "newTabSoon": "Nouvel onglet - Bientôt disponible!",
+            "closeConfirm": "Voulez-vous fermer Comet-X?"
+        }
+    }
+}
