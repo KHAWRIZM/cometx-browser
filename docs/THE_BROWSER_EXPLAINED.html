@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 CometX Browser - شرح للي ما فهم 🔥</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700;900&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --sovereign: #1ABC9C;
+            --dark: #05261F;
+            --gold: #F1C40F;
+            --danger: #E74C3C;
+            --glass: rgba(10, 35, 30, 0.95);
+            --sand: #c2b280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        /* Neural Background */
+        .neural-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(26, 188, 156, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(241, 196, 15, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #021a15 0%, #05261F 50%, #0a3d2e 100%);
+            z-index: -2;
+        }
+
+        /* Floating Neurons */
+        .neuron {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--sovereign);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--sovereign);
+            animation: float-neuron 20s infinite linear;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes float-neuron {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+            }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(26, 188, 156, 0.2), transparent);
+            border-bottom: 3px solid var(--sovereign);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🧠';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .main-title {
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(90deg,
+                    var(--sovereign) 0%,
+                    var(--gold) 25%,
+                    #fff 50%,
+                    var(--gold) 75%,
+                    var(--sovereign) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: shimmer 3s linear infinite, float-title 4s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: default;
+            transition: transform 0.3s ease;
+        }
+
+        .main-title:hover {
+            transform: scale(1.05);
+            animation: shimmer 1.5s linear infinite, pulse-glow 0.5s ease-in-out infinite;
+        }
+
+        .main-title::before {
+            content: '🧠 CometX Sovereign Browser';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--sovereign), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(25px);
+            opacity: 0.7;
+            z-index: -1;
+            animation: glow-pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% center;
+            }
+
+            100% {
+                background-position: -200% center;
+            }
+        }
+
+        @keyframes float-title {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes glow-pulse {
+            from {
+                filter: blur(20px);
+                opacity: 0.5;
+            }
+
+            to {
+                filter: blur(35px);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 30px rgba(26, 188, 156, 0.8)) drop-shadow(0 0 60px rgba(241, 196, 15, 0.6));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 50px rgba(26, 188, 156, 1)) drop-shadow(0 0 80px rgba(241, 196, 15, 0.9));
+            }
+        }
+
+        .subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.8em;
+            color: var(--sand);
+            font-style: italic;
+        }
+
+        .tagline {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: var(--sovereign);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: var(--glass);
+            border: 2px solid var(--sovereign);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(26, 188, 156, 0.2);
+        }
+
+        .section-card::before {
+            content: attr(data-emoji);
+            position: absolute;
+            top: -25px;
+            right: 30px;
+            font-size: 50px;
+            background: var(--dark);
+            padding: 0 15px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: var(--sovereign);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed rgba(26, 188, 156, 0.3);
+        }
+
+        /* Three Lobe System */
+        .lobe-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 900px) {
+            .lobe-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lobe-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(26, 188, 156, 0.1));
+            border: 2px solid;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lobe-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: currentColor;
+        }
+
+        .lobe-executive {
+            border-color: #3498DB;
+            color: #3498DB;
+        }
+
+        .lobe-sensory {
+            border-color: #E74C3C;
+            color: #E74C3C;
+        }
+
+        .lobe-cognitive {
+            border-color: #9B59B6;
+            color: #9B59B6;
+        }
+
+        .lobe-card:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .lobe-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .lobe-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .lobe-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.3em;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .lobe-desc {
+            color: #fff;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* Meme Cards */
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .meme-card {
+            background: linear-gradient(135deg, #1a0a00, #2d1810);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .meme-card:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .meme-scene {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .meme-text {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .meme-caption {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.65em;
+            color: var(--gold);
+            line-height: 1.8;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(26, 188, 156, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--sovereign);
+            background: rgba(26, 188, 156, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature-name {
+            font-size: 1.2em;
+            color: var(--sovereign);
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 0.9em;
+            color: var(--sand);
+            line-height: 1.6;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0d0d0d;
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .keyword {
+            color: #569cd6;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .code-block .function {
+            color: #dcdcaa;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            border: 2px solid rgba(26, 188, 156, 0.3);
+            text-align: center;
+        }
+
+        .comparison-table th {
+            background: rgba(26, 188, 156, 0.2);
+            color: var(--sovereign);
+            font-size: 1.1em;
+        }
+
+        .comparison-table td {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .status-done {
+            color: #2ECC71;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: var(--gold);
+        }
+
+        .status-needed {
+            color: var(--danger);
+        }
+
+        /* Story Section */
+        .story-box {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.2), rgba(0, 0, 0, 0.5));
+            border: 3px solid var(--danger);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .story-box::before {
+            content: '🔥';
+            position: absolute;
+            top: -20px;
+            right: 30px;
+            font-size: 40px;
+            background: var(--dark);
+            padding: 0 10px;
+        }
+
+        .story-title {
+            color: var(--danger);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .story-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.3em;
+            line-height: 2;
+            color: var(--sand);
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(26, 188, 156, 0.2);
+        }
+
+        .shortcut-keys {
+            background: linear-gradient(135deg, #333, #222);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85em;
+            color: var(--sovereign);
+            border: 1px solid #444;
+            white-space: nowrap;
+        }
+
+        .shortcut-desc {
+            color: #fff;
+            font-size: 0.95em;
+        }
+
+        /* Phoenix Section */
+        .phoenix-section {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(231, 76, 60, 0.1));
+            border: 3px solid var(--gold);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phoenix-section::before {
+            content: '🔥';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: burn 3s ease-in-out infinite;
+        }
+
+        @keyframes burn {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .phoenix-quote {
+            font-family: 'Amiri', serif;
+            font-size: 2.5em;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .phoenix-translation {
+            font-size: 1.3em;
+            color: var(--sand);
+            font-style: italic;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--sovereign);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            direction: ltr;
+            text-align: center;
+        }
+
+        .arch-diagram {
+            font-family: monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: var(--sovereign);
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 3px solid var(--sovereign);
+            margin-top: 50px;
+            background: linear-gradient(180deg, transparent, rgba(26, 188, 156, 0.1));
+        }
+
+        .footer-logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .footer-name {
+            font-size: 2em;
+            color: var(--sovereign);
+            margin-bottom: 10px;
+        }
+
+        .footer-title {
+            color: var(--sand);
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .footer-quote {
+            font-family: 'Amiri', serif;
+            font-size: 1.3em;
+            color: var(--gold);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Dialog */
+        .dialog {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--sovereign);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .dialog-speaker {
+            position: absolute;
+            top: -12px;
+            right: 25px;
+            background: var(--dark);
+            padding: 5px 15px;
+            border: 2px solid var(--sovereign);
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--sovereign);
+        }
+
+        .dialog-text {
+            padding-top: 10px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--sovereign);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: var(--sovereign);
+        }
+
+        .stat-label {
+            color: var(--sand);
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Highlight */
+        .highlight {
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.2), rgba(241, 196, 15, 0.1));
+            padding: 3px 10px;
+            border-radius: 5px;
+            color: var(--sovereign);
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid var(--danger);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .warning-icon {
+            font-size: 40px;
+        }
+
+        .warning-text {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: rgba(46, 204, 113, 0.1);
+            border: 2px solid #2ECC71;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .success-icon {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="neural-bg"></div>
+
+    <!-- Floating Neurons -->
+    <div class="neuron" style="left: 10%; animation-delay: 0s; animation-duration: 15s;"></div>
+    <div class="neuron" style="left: 20%; animation-delay: 2s; animation-duration: 18s;"></div>
+    <div class="neuron" style="left: 30%; animation-delay: 4s; animation-duration: 20s;"></div>
+    <div class="neuron" style="left: 40%; animation-delay: 1s; animation-duration: 16s;"></div>
+    <div class="neuron" style="left: 50%; animation-delay: 3s; animation-duration: 22s;"></div>
+    <div class="neuron" style="left: 60%; animation-delay: 5s; animation-duration: 17s;"></div>
+    <div class="neuron" style="left: 70%; animation-delay: 2s; animation-duration: 19s;"></div>
+    <div class="neuron" style="left: 80%; animation-delay: 4s; animation-duration: 21s;"></div>
+    <div class="neuron" style="left: 90%; animation-delay: 1s; animation-duration: 14s;"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="main-title">🧠 CometX Sovereign Browser</h1>
+        <p class="subtitle">"قاتل Perplexity - صنع في السعودية"</p>
+        <p class="tagline">متصفح سيادي بذكاء اصطناعي محلي 100% - بياناتك ما تطلع من جهازك!</p>
+    </header>
+
+    <div class="container">
+
+        <!-- القصة -->
+        <section class="story-box">
+            <h2 class="story-title">📖 القصة: من الرماد ينهض العنقاء</h2>
+            <p class="story-text">
+                في يوم من الأيام، طلبت من Perplexity يساعدني... الذكي حذف لي <strong>60+ مورد Azure</strong> بدون ما
+                يسألني! 😤
+                <br><br>
+                قلت: "خلاص، ما نبي نعتمد على أحد!"
+                <br><br>
+                من هنا ولدت الفكرة: <strong>متصفح سيادي</strong> يشتغل 100% على جهازك، ما يرسل بياناتك لأي سيرفر، وفيه
+                ذكاء اصطناعي محلي يخدمك بدون ما يبيعك!
+                <br><br>
+                هذا مو بس متصفح... هذا <span class="highlight">إعلان استقلال رقمي!</span> 🔥
+            </p>
+        </section>
+
+        <!-- Phoenix Quote -->
+        <section class="phoenix-section">
+            <p class="phoenix-quote">من الرماد ينهض العنقاء 🔥</p>
+            <p class="phoenix-translation">"From the ashes rises the phoenix"</p>
+        </section>
+
+        <!-- Three Lobe System -->
+        <section class="section-card" data-emoji="🧠">
+            <h2 class="section-title">نظام الفصوص الثلاثة - Three Lobe System</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1em; color: var(--sand);">
+                مستوحى من الدماغ البشري! كل فص له دور معين:
+            </p>
+
+            <div class="lobe-container">
+                <!-- Executive -->
+                <div class="lobe-card lobe-executive">
+                    <div class="lobe-icon">👔</div>
+                    <h3 class="lobe-title">Executive Lobe</h3>
+                    <p class="lobe-arabic">الفص التنفيذي</p>
+                    <p class="lobe-desc">
+                        المدير العام! يوزع المهام على باقي الفصوص، يراقب الأداء، ويتأكد إن كل شي ماشي صح.
+                        <br><br>
+                        <strong>مثل:</strong> مدير المشروع اللي يقول "انت سو كذا، وانت سو كذا"
+                    </p>
+                </div>
+
+                <!-- Sensory -->
+                <div class="lobe-card lobe-sensory">
+                    <div class="lobe-icon">👁️</div>
+                    <h3 class="lobe-title">Sensory Lobe</h3>
+                    <p class="lobe-arabic">الفص الحسي</p>
+                    <p class="lobe-desc">
+                        الحارس! يفلتر المدخلات، يحمي النظام من الهجمات، ويتأكد إن اللي يدخل نظيف.
+                        <br><br>
+                        <strong>مثل:</strong> حارس الملهى اللي يقول "انت تدخل، وانت لا!"
+                    </p>
+                </div>
+
+                <!-- Cognitive -->
+                <div class="lobe-card lobe-cognitive">
+                    <div class="lobe-icon">🎓</div>
+                    <h3 class="lobe-title">Cognitive Lobe</h3>
+                    <p class="lobe-arabic">الفص المعرفي</p>
+                    <p class="lobe-desc">
+                        العقل المفكر! يحلل البيانات، يفهم السياق، ويولد الردود الذكية.
+                        <br><br>
+                        <strong>مثل:</strong> الفيلسوف اللي يقعد يفكر ويجيك بحلول عبقرية
+                    </p>
+                </div>
+            </div>
+
+            <div class="dialog">
+                <span class="dialog-speaker">🧠 الدماغ يقول</span>
+                <p class="dialog-text">
+                    "كل فص يشتغل لحاله، بس كلهم يتواصلون مع بعض. لو الفص الحسي شاف خطر، يرسل تحذير للتنفيذي. التنفيذي
+                    يقول للمعرفي 'حلل الموضوع'. في النهاية، الثلاثة يطلعون لك بأحسن قرار!"
+                </p>
+            </div>
+
+            <!-- Three Lobe Visual Diagram -->
+            <div class="architecture" style="margin-top: 30px;">
+                <h3 style="color: var(--gold); margin-bottom: 20px;">🧠 كيف الفصوص تتواصل؟</h3>
+                <pre class="arch-diagram" style="font-size: 0.85em;">
+                           ┌─────────────────────┐
+                           │   👤 المستخدم       │
+                           │   "أبي أبحث عن..."  │
+                           └──────────┬──────────┘
+                                      │
+                                      ▼
+        ┌─────────────────────────────────────────────────────────┐
+        │                   👁️ SENSORY LOBE                       │
+        │                   الفص الحسي (الحارس)                   │
+        │   ┌─────────────────────────────────────────────────┐   │
+        │   │ ✅ فلترة المدخلات    ✅ كشف التهديدات           │   │
+        │   │ ✅ تنظيف البيانات    ✅ التحقق من الصلاحيات     │   │
+        │   └─────────────────────────────────────────────────┘   │
+        └───────────────────────┬─────────────────────────────────┘
+                                │ "المدخلات نظيفة!"
+                                ▼
+        ┌─────────────────────────────────────────────────────────┐
+        │                   👔 EXECUTIVE LOBE                     │
+        │                   الفص التنفيذي (المدير)                │
+        │   ┌─────────────────────────────────────────────────┐   │
+        │   │ 📋 توزيع المهام     📊 مراقبة الأداء            │   │
+        │   │ ⚡ تنسيق الردود     🎯 اتخاذ القرارات           │   │
+        │   └─────────────────────────────────────────────────┘   │
+        └───────────────────────┬─────────────────────────────────┘
+                                │ "حلل هذا الطلب!"
+                                ▼
+        ┌─────────────────────────────────────────────────────────┐
+        │                   🎓 COGNITIVE LOBE                     │
+        │                   الفص المعرفي (الفيلسوف)               │
+        │   ┌─────────────────────────────────────────────────┐   │
+        │   │ 🧠 تحليل السياق     💡 توليد الأفكار            │   │
+        │   │ 📚 استرجاع المعرفة  ✍️ صياغة الرد               │   │
+        │   └─────────────────────────────────────────────────┘   │
+        └───────────────────────┬─────────────────────────────────┘
+                                │
+                                ▼
+                           ┌─────────────────────┐
+                           │   💬 الرد النهائي   │
+                           │   "هذا اللي تبيه!"  │
+                           └─────────────────────┘
+                </pre>
+            </div>
+        </section>
+
+        <!-- ميمز -->
+        <section class="section-card" data-emoji="😂">
+            <h2 class="section-title">🎬 ميمز المتصفح - لأن الضحك صحة</h2>
+
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <div class="meme-scene">🔍💀➡️🧠✨</div>
+                    <p class="meme-text">
+                        Perplexity: "خلني أساعدك!"
+                        <br>
+                        *يحذف 60 مورد Azure*
+                    </p>
+                    <p class="meme-caption">PERPLEXITY: "OOPS"<br>SULAIMAN: "من الرماد ينهض العنقاء يا HABIBI"</p>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-scene">🌐☁️❌ ➡️ 💻✅</div>
+                    <p class="meme-text">
+                        Chrome: "بياناتك عندنا آمنة"
+                        <br>
+                        *يبيعها لـ 500 شركة*
+                    </p>
+                    <p class="meme-caption">COMETX: "بياناتك ما تطلع من جهازك أصلاً!"</p>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-scene">🤖💰📈</div>
+                    <p class="meme-text">
+                        OpenAI: "GPT-5 بس بـ $500/شهر!"
+                        <br>
+                        Sulaiman: *يشغل Phi Silica مجاناً*
+                    </p>
+                    <p class="meme-caption">"TAKE MONEY TAKE!<br>MY AI IS FREE, HABIBI!"</p>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-scene">👁️🧠💭</div>
+                    <p class="meme-text">
+                        الفص الحسي: "في واحد يحاول يخترقنا!"
+                        <br>
+                        الفص التنفيذي: "بلوك!"
+                        <br>
+                        الفص المعرفي: "وسجل IP-ه للتاريخ"
+                    </p>
+                    <p class="meme-caption">TEAMWORK MAKES THE DREAM WORK</p>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-scene">🦊🆚🌍🆚🧠</div>
+                    <p class="meme-text">
+                        Firefox: أنا أحمي خصوصيتك!
+                        <br>
+                        Brave: لا أنا!
+                        <br>
+                        CometX: *AI محلي + صفر بيانات مرسلة*
+                    </p>
+                    <p class="meme-caption">"HOLD MY GAHWA ☕"</p>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-scene">🇸🇦⚡2030</div>
+                    <p class="meme-text">
+                        Vision 2030: نبي نكون hub تقني!
+                        <br>
+                        Sulaiman: *يسوي متصفح سيادي*
+                    </p>
+                    <p class="meme-caption">"SAY NO MORE FAM"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ميزات المتصفح -->
+        <section class="section-card" data-emoji="⚡">
+            <h2 class="section-title">الميزات - Features</h2>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-name">AI Sidebar</h3>
+                    <p class="feature-desc">شريط جانبي للذكاء الاصطناعي، تقدر تسأله أي سؤال وانت تتصفح</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔮</div>
+                    <h3 class="feature-name">Floating Orb</h3>
+                    <p class="feature-desc">كرة عائمة تضغط عليها يفتح لك AI فوراً - وصول سريع!</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-name">Neural Particles</h3>
+                    <p class="feature-desc">خلفية متحركة تمثل "تفكير" الذكاء الاصطناعي - جمالية!</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-name">Quick Links</h3>
+                    <p class="feature-desc">روابط سريعة لـ GitHub, Azure, Claude, ChatGPT وغيرها</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🌙</div>
+                    <h3 class="feature-name">Dark Theme</h3>
+                    <p class="feature-desc">ثيم داكن مريح للعين - صمم للمطورين اللي يسهرون!</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-name">Privacy First</h3>
+                    <p class="feature-desc">صفر بيانات مرسلة - كل شي يشتغل محلياً على جهازك</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⌨️</div>
+                    <h3 class="feature-name">Shortcuts</h3>
+                    <p class="feature-desc">اختصارات لوحة مفاتيح للوصول السريع لكل شي</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-name">Status Bar</h3>
+                    <p class="feature-desc">شريط حالة يبين لك الوقت وحالة الاتصال</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- اختصارات لوحة المفاتيح -->
+        <section class="section-card" data-emoji="⌨️">
+            <h2 class="section-title">اختصارات لوحة المفاتيح</h2>
+
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">Ctrl + Shift + C</span>
+                    <span class="shortcut-desc">فتح/إغلاق AI Sidebar</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">Ctrl + T</span>
+                    <span class="shortcut-desc">تبويب جديد</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">Ctrl + L</span>
+                    <span class="shortcut-desc">التركيز على شريط العناوين</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">Escape</span>
+                    <span class="shortcut-desc">إغلاق اللوحات المفتوحة</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">Ctrl + W</span>
+                    <span class="shortcut-desc">إغلاق التبويب (قريباً)</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-keys">F5</span>
+                    <span class="shortcut-desc">تحديث الصفحة</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- الألوان -->
+        <section class="section-card" data-emoji="🎨">
+            <h2 class="section-title">نظام الألوان - Color System</h2>
+
+            <div class="feature-grid">
+                <div class="feature-item" style="border-color: #1ABC9C;">
+                    <div
+                        style="width: 60px; height: 60px; background: #1ABC9C; border-radius: 50%; margin: 0 auto 15px;">
+                    </div>
+                    <h3 class="feature-name">#1ABC9C</h3>
+                    <p class="feature-desc">Sovereign Primary - اللون الأخضر السيادي الرئيسي</p>
+                </div>
+                <div class="feature-item" style="border-color: #05261F;">
+                    <div
+                        style="width: 60px; height: 60px; background: #05261F; border-radius: 50%; margin: 0 auto 15px; border: 2px solid #1ABC9C;">
+                    </div>
+                    <h3 class="feature-name">#05261F</h3>
+                    <p class="feature-desc">Background Dark - الخلفية الداكنة</p>
+                </div>
+                <div class="feature-item" style="border-color: #F1C40F;">
+                    <div
+                        style="width: 60px; height: 60px; background: #F1C40F; border-radius: 50%; margin: 0 auto 15px;">
+                    </div>
+                    <h3 class="feature-name">#F1C40F</h3>
+                    <p class="feature-desc">Gold Accent - الذهبي للتأكيد</p>
+                </div>
+                <div class="feature-item" style="border-color: #E74C3C;">
+                    <div
+                        style="width: 60px; height: 60px; background: #E74C3C; border-radius: 50%; margin: 0 auto 15px;">
+                    </div>
+                    <h3 class="feature-name">#E74C3C</h3>
+                    <p class="feature-desc">Danger - للتحذيرات والأخطاء</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- حالة المشروع -->
+        <section class="section-card" data-emoji="📊">
+            <h2 class="section-title">حالة المشروع - Project Status</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>الميزة</th>
+                        <th>الحالة</th>
+                        <th>ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>واجهة المستخدم الكاملة</td>
+                        <td class="status-done">✅ جاهز</td>
+                        <td>54KB HTML واحد متكامل</td>
+                    </tr>
+                    <tr>
+                        <td>Neural Background</td>
+                        <td class="status-done">✅ جاهز</td>
+                        <td>جزيئات متحركة جميلة</td>
+                    </tr>
+                    <tr>
+                        <td>AI Sidebar UI</td>
+                        <td class="status-done">✅ جاهز</td>
+                        <td>الشكل موجود ويشتغل</td>
+                    </tr>
+                    <tr>
+                        <td>Three Lobe Selector</td>
+                        <td class="status-done">✅ جاهز</td>
+                        <td>الأزرار شغالة</td>
+                    </tr>
+                    <tr>
+                        <td>Quick Links</td>
+                        <td class="status-done">✅ جاهز</td>
+                        <td>8 روابط سريعة</td>
+                    </tr>
+                    <tr>
+                        <td>ربط AI حقيقي</td>
+                        <td class="status-pending">⏳ قيد العمل</td>
+                        <td>يحتاج ربط بـ Phi Silica</td>
+                    </tr>
+                    <tr>
+                        <td>نظام التبويبات</td>
+                        <td class="status-pending">⏳ قيد العمل</td>
+                        <td>الشكل موجود، يحتاج منطق</td>
+                    </tr>
+                    <tr>
+                        <td>محرك البحث</td>
+                        <td class="status-needed">❌ مطلوب</td>
+                        <td>حالياً يرسل لـ Google</td>
+                    </tr>
+                    <tr>
+                        <td>Electron App</td>
+                        <td class="status-needed">❌ مطلوب</td>
+                        <td>تحويل لتطبيق Desktop</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <span class="warning-icon">⚠️</span>
+                <p class="warning-text">
+                    <strong>الخطوة الجاية:</strong> تحويل الملف لتطبيق Electron مع ربط Phi Silica للذكاء الاصطناعي
+                    المحلي. هذا راح يخلي المتصفح يشتغل كتطبيق حقيقي مو بس صفحة HTML!
+                </p>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="section-card" data-emoji="🏗️">
+            <h2 class="section-title">البنية المعمارية - Architecture</h2>
+
+            <div class="architecture">
+                <pre class="arch-diagram">
+┌──────────────────────────────────────────────────────────────────┐
+│                    🧠 CometX Sovereign Browser                    │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    💻 Frontend (HTML/CSS/JS)                 │ │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │ │
+│  │  │ Title   │  │ Nav     │  │ Content │  │ Status  │        │ │
+│  │  │ Bar     │  │ Bar     │  │ Area    │  │ Bar     │        │ │
+│  │  └─────────┘  └─────────┘  └─────────┘  └─────────┘        │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                              │                                   │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    🧠 Three Lobe System                      │ │
+│  │  ┌───────────┐    ┌───────────┐    ┌───────────┐           │ │
+│  │  │ Executive │◄──►│  Sensory  │◄──►│ Cognitive │           │ │
+│  │  │   Lobe    │    │   Lobe    │    │   Lobe    │           │ │
+│  │  └───────────┘    └───────────┘    └───────────┘           │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                              │                                   │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    🤖 AI Backend (Local)                     │ │
+│  │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │ │
+│  │  │ Phi Silica  │    │   Memory    │    │   Context   │     │ │
+│  │  │ (Port 5272) │    │   System    │    │   Manager   │     │ │
+│  │  └─────────────┘    └─────────────┘    └─────────────┘     │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                              │                                   │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    💾 Local Storage Only                     │ │
+│  │         ⚠️ ZERO DATA SENT TO EXTERNAL SERVERS ⚠️            │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+        </section>
+
+        <!-- المبادئ -->
+        <section class="section-card" data-emoji="⚖️">
+            <h2 class="section-title">المبادئ الأساسية - Core Principles</h2>
+
+            <div class="lobe-container">
+                <div class="lobe-card" style="border-color: #2ECC71; color: #2ECC71;">
+                    <div class="lobe-icon">🔒</div>
+                    <h3 class="lobe-title">الخصوصية</h3>
+                    <p class="lobe-arabic">Privacy</p>
+                    <p class="lobe-desc">
+                        100% محلي - بياناتك لا تغادر جهازك أبداً. لا tracking، لا cookies للشركات، لا بيع بيانات.
+                    </p>
+                </div>
+
+                <div class="lobe-card" style="border-color: #3498DB; color: #3498DB;">
+                    <div class="lobe-icon">⚖️</div>
+                    <h3 class="lobe-title">الحياد</h3>
+                    <p class="lobe-arabic">Neutrality</p>
+                    <p class="lobe-desc">
+                        لا انحياز لأمة أو دين أو سياسة. المتصفح أداة محايدة تخدم الجميع بالتساوي.
+                    </p>
+                </div>
+
+                <div class="lobe-card" style="border-color: #F1C40F; color: #F1C40F;">
+                    <div class="lobe-icon">👑</div>
+                    <h3 class="lobe-title">السيادة</h3>
+                    <p class="lobe-arabic">Sovereignty</p>
+                    <p class="lobe-desc">
+                        Vision 2030 - صنع في السعودية. منتج وطني يثبت إننا نقدر نصنع أحسن من Silicon Valley!
+                    </p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <span class="success-icon">✅</span>
+                <p class="warning-text">
+                    <strong>الفرق الجوهري:</strong> باقي المتصفحات يبيعون بياناتك للإعلانات. CometX ما عنده حتى اتصال
+                    بسيرفرات خارجية - كل شي يشتغل على جهازك!
+                </p>
+            </div>
+        </section>
+
+        <!-- إحصائيات -->
+        <section class="section-card" data-emoji="📈">
+            <h2 class="section-title">إحصائيات المشروع</h2>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-value">54</div>
+                    <div class="stat-label">KB حجم الملف</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">ملف HTML واحد</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🧠</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">فصوص ذكاء</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🔗</div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">روابط سريعة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">⌨️</div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">اختصارات</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">☁️</div>
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">بيانات مرسلة</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الخطوات الجاية -->
+        <section class="section-card" data-emoji="🚀">
+            <h2 class="section-title">الخطوات الجاية - Roadmap</h2>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="dialog">
+                    <span class="dialog-speaker">1️⃣ المرحلة الأولى</span>
+                    <p class="dialog-text">
+                        <strong>تحويل لـ Electron App</strong><br>
+                        نحول الملف HTML لتطبيق Desktop حقيقي يشتغل كمتصفح فعلي مع WebView.
+                    </p>
+                </div>
+
+                <div class="dialog">
+                    <span class="dialog-speaker">2️⃣ المرحلة الثانية</span>
+                    <p class="dialog-text">
+                        <strong>ربط Phi Silica</strong><br>
+                        نربط المتصفح بـ Phi Silica المحلي (Port 5272) عشان AI يشتغل فعلياً.
+                        <br><br>
+                        <span
+                            style="background: rgba(26, 188, 156, 0.2); padding: 10px 15px; border-radius: 10px; display: block; margin-top: 10px;">
+                            💡 <strong>وش هي Phi Silica؟</strong><br>
+                            نموذج ذكاء اصطناعي من Microsoft محسّن خصيصاً للأجهزة المحلية والمحمولة. يشتغل بدون إنترنت،
+                            سريع، خفيف، ويحترم خصوصيتك 100%. مثالي للمتصفح السيادي!
+                        </span>
+                    </p>
+                </div>
+
+                <div class="dialog">
+                    <span class="dialog-speaker">3️⃣ المرحلة الثالثة</span>
+                    <p class="dialog-text">
+                        <strong>محرك بحث محلي</strong><br>
+                        نسوي محرك بحث يفهرس الإنترنت محلياً بدون إرسال queries لـ Google.
+                    </p>
+                </div>
+
+                <div class="dialog">
+                    <span class="dialog-speaker">4️⃣ المرحلة الرابعة</span>
+                    <p class="dialog-text">
+                        <strong>ذاكرة المستخدم</strong><br>
+                        نضيف نظام ذاكرة يتذكر تفضيلاتك وسياقك - مثل ذاكرة Copilot اللي سويناها!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- مقارنة المتصفحات -->
+        <section class="section-card" data-emoji="⚔️">
+            <h2 class="section-title">ليش CometX مختلف؟ - Browser Wars</h2>
+            <p style="margin-bottom: 25px; color: var(--sand);">مقارنة صادقة بدون مجاملات:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>الميزة</th>
+                        <th>🧠 CometX</th>
+                        <th>🦁 Brave</th>
+                        <th>🦊 Firefox</th>
+                        <th>🌐 Chrome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AI مدمج</td>
+                        <td class="status-done">✅ محلي 100%</td>
+                        <td class="status-pending">⚠️ Leo (سحابي)</td>
+                        <td class="status-needed">❌ لا</td>
+                        <td class="status-pending">⚠️ Gemini (سحابي)</td>
+                    </tr>
+                    <tr>
+                        <td>الخصوصية</td>
+                        <td class="status-done">✅ صفر بيانات مرسلة</td>
+                        <td class="status-done">✅ جيد</td>
+                        <td class="status-done">✅ جيد</td>
+                        <td class="status-needed">❌ يبيع بياناتك</td>
+                    </tr>
+                    <tr>
+                        <td>يشتغل بدون نت</td>
+                        <td class="status-done">✅ AI يشتغل offline</td>
+                        <td class="status-needed">❌ لا</td>
+                        <td class="status-needed">❌ لا</td>
+                        <td class="status-needed">❌ لا</td>
+                    </tr>
+                    <tr>
+                        <td>Open Source</td>
+                        <td class="status-done">✅ قريباً</td>
+                        <td class="status-done">✅ نعم</td>
+                        <td class="status-done">✅ نعم</td>
+                        <td class="status-pending">⚠️ جزئياً</td>
+                    </tr>
+                    <tr>
+                        <td>صنع عربي/سعودي</td>
+                        <td class="status-done">✅ 🇸🇦 100%</td>
+                        <td class="status-needed">❌ أمريكي</td>
+                        <td class="status-needed">❌ أمريكي</td>
+                        <td class="status-needed">❌ أمريكي</td>
+                    </tr>
+                    <tr>
+                        <td>Three Lobe AI</td>
+                        <td class="status-done">✅ حصري!</td>
+                        <td class="status-needed">❌ لا</td>
+                        <td class="status-needed">❌ لا</td>
+                        <td class="status-needed">❌ لا</td>
+                    </tr>
+                    <tr>
+                        <td>السعر</td>
+                        <td class="status-done">✅ مجاني</td>
+                        <td class="status-done">✅ مجاني</td>
+                        <td class="status-done">✅ مجاني</td>
+                        <td class="status-pending">⚠️ "مجاني" (تدفع ببياناتك)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="dialog" style="margin-top: 25px;">
+                <span class="dialog-speaker">💡 الخلاصة</span>
+                <p class="dialog-text">
+                    CometX مو بس متصفح، هو <strong>إعلان استقلال رقمي</strong>. الباقين يعطونك خصوصية "نسبية"، إحنا
+                    نعطيك <strong>سيادة كاملة</strong> على بياناتك. AI يشتغل على جهازك، ما يعرف عنك شي سيرفر خارجي. هذا
+                    الفرق الجوهري.
+                </p>
+            </div>
+        </section>
+
+        <!-- الملفات -->
+        <section class="section-card" data-emoji="📁">
+            <h2 class="section-title">ملفات المشروع</h2>
+
+            <div class="code-block">
+                <span class="comment">// هيكل المشروع</span>
+                C:\SULAIMAN_EMPIRE\COMETX_BROWSER\
+                ├── <span class="string">index.html</span> <span class="comment">// الملف الرئيسي - 54KB</span>
+                ├── <span class="string">docs/</span>
+                │ └── <span class="string">THE_BROWSER_EXPLAINED.html</span> <span class="comment">// هذا الملف!</span>
+                └── <span class="comment">(قريباً)</span>
+                ├── <span class="string">electron/</span> <span class="comment">// تطبيق Desktop</span>
+                ├── <span class="string">ai-backend/</span> <span class="comment">// ربط Phi Silica</span>
+                └── <span class="string">search-engine/</span> <span class="comment">// محرك البحث</span>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Call to Action -->
+    <section
+        style="background: linear-gradient(135deg, rgba(26, 188, 156, 0.2), rgba(241, 196, 15, 0.1)); border: 3px solid var(--sovereign); border-radius: 25px; padding: 50px; margin: 40px auto; max-width: 900px; text-align: center;">
+        <h2 style="font-size: 2.5em; color: var(--sovereign); margin-bottom: 20px;">🚀 تبي تكون جزء من الثورة؟</h2>
+        <p style="font-size: 1.3em; color: var(--sand); margin-bottom: 30px; line-height: 1.8;">
+            المشروع مفتوح للمساهمات! سواء كنت مطور، مصمم، أو بس حابب تجرب النسخة الأولى
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px;">
+            <a href="https://github.com/KHAWRIZM" target="_blank"
+                style="background: var(--sovereign); color: #fff; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1em; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;">
+                🐙 GitHub: KHAWRIZM
+            </a>
+            <a href="https://x.com/SulaimanDev" target="_blank"
+                style="background: #1DA1F2; color: #fff; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1em; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;">
+                𝕏 تابعني على X
+            </a>
+            <a href="mailto:shammar403@gmail.com"
+                style="background: var(--gold); color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1em; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;">
+                📧 تواصل معاي
+            </a>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); border-radius: 15px; padding: 25px; margin-top: 20px;">
+            <p style="color: #fff; font-size: 1.1em; margin-bottom: 15px;">📦 <strong>النسخة القادمة:</strong></p>
+            <p style="font-family: 'Press Start 2P', cursive; font-size: 1.5em; color: var(--gold);">
+                Phoenix v0.1 🔥
+            </p>
+            <p style="color: var(--sand); margin-top: 10px;">"من الرماد... تولد النسخة الأولى"</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">🧠🔥</div>
+        <h2 class="footer-name">SULAIMAN "THE SOVEREIGN" ALSHAMMARI</h2>
+        <p class="footer-title">CEO, GraTech Solutions | KHAWRIZM | The Browser Bartender</p>
+        <p class="footer-quote">
+            "من الرماد ينهض العنقاء"
+            <br>
+            <em>"From the ashes rises the phoenix"</em>
+        </p>
+
+        <div
+            style="margin: 30px 0; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px; display: inline-block;">
+            <p style="color: var(--sovereign); font-size: 1.1em; margin-bottom: 10px;">💚 أرباح المشروع تروح لـ:</p>
+            <p style="color: #fff; font-size: 1em;">🇵🇸 أطفال غزة &nbsp;|&nbsp; 👶 طفلتي &nbsp;|&nbsp; 🤲 المحتاجين</p>
+        </div>
+
+        <p style="margin-top: 30px; color: var(--sand); font-size: 0.9em;">
+            © 2026 — Built with عنترة Energy, Zero Corporate Funding, and 100% Saudi Pride 🇸🇦
+            <br><br>
+            <span style="font-family: 'Amiri', serif; font-size: 1.2em;">
+                "لا أحد أعلى من أحد - كلنا سواسية"
+            </span>
+        </p>
+    </footer>
+
+    <script>
+        // Create floating neurons
+        function createNeuron() {
+            const neuron = document.createElement('div');
+            neuron.className = 'neuron';
+            neuron.style.left = Math.random() * 100 + '%';
+            neuron.style.animationDuration = (15 + Math.random() * 10) + 's';
+            neuron.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(neuron);
+
+            setTimeout(() => neuron.remove(), 25000);
+        }
+
+        // Create neurons periodically
+        setInterval(createNeuron, 3000);
+
+        // Console branding
+        console.log('%c🧠 CometX Sovereign Browser - Documentation', 'color: #1ABC9C; font-size: 20px; font-weight: bold;');
+        console.log('%c"من الرماد ينهض العنقاء" 🔥', 'color: #F1C40F; font-size: 14px;');
+        console.log('%cBuilt by Sulaiman Al-Shammari - KHAWRIZM', 'color: #c2b280; font-size: 12px;');
+        console.log('%c⚠️ Zero data sent to external servers!', 'color: #E74C3C; font-size: 12px;');
+    </script>
+</body>
+
+</html>
