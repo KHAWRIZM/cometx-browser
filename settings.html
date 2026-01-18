@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>CometX - Enter API Key</title>
+  <style>
+    body { background: #0a0a0a; color: #0ff; font-family: sans-serif; padding: 40px; }
+    .container { max-width: 500px; margin: 0 auto; background: #111; padding: 30px; border-radius: 15px; }
+    h1 { color: #ff0; text-align: center; }
+    input { width: 100%; padding: 15px; margin: 10px 0; background: #222; border: 1px solid #0ff; color: #fff; border-radius: 8px; }
+    button { width: 100%; padding: 15px; background: linear-gradient(45deg, #0ff, #f0f); border: none; color: #000; font-weight: bold; cursor: pointer; border-radius: 8px; font-size: 16px; }
+    .info { background: #1a1a2e; padding: 15px; border-radius: 8px; margin-top: 20px; }
+    .success { color: #0f4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>☄️ CometX API Settings</h1>
+    <p>أدخل مفتاحك هنا لتفعيل الذكاء الاصناعي:</p>
+    
+    <label>Azure OpenAI Key:</label>
+    <input type="password" id="azureKey" placeholder="sk-...">
+    
+    <label>Ollama URL (local):</label>
+    <input type="text" id="ollamaUrl" value="http://localhost:11434">
+    
+    <button onclick="saveKeys()">💾 حفظ المفاتيح</button>
+    
+    <div id="status"></div>
+    
+    <div class="info">
+      <h3>🔒 أمان</h3>
+      <ul>
+        <li>المفاتيح تتحفظ فق على جهازك</li>
+        <li>لا ترسل لأي سيرفر</li>
+        <li>يمكنك حذfها في أي وقت</li>
+      </ul>
+    </div>
+    
+    <p><a href="index.html" style="color: #0ff;">← ارجع للرئيسية</a></p>
+  </div>
+  
+  <script>
+    // Load saved keys
+    document.getElementById('azureKey').value = localStorage.getItem('AZURE_KEY') || '';
+    document.getElementById('ollamaUrl').value = localStorage.getItem('OLLAMA_URL') || 'http://localhost:11434';
+    
+    function saveKeys() {
+      const azure = document.getElementById('azureKey').value;
+      const ollama = document.getElementById('ollamaUrl').value;
+      
+      if (azure) localStorage.setItem('AZURE_KEY', azure);
+      if (ollama) localStorage.setItem('OLLAMA_URL', ollama);
+      
+      document.getElementById('status').innerHTML = '<p class="success">✅ تم حفظ المفاتيح!</p>';
+    }
+  </script>
+</body>
+</html>
