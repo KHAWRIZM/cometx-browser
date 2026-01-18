@@ -97,7 +97,7 @@
     }
   },
   "dependencies": {
-    "electron-store": "^8.1.0",
+    "electron-store": "^11.0.2",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
